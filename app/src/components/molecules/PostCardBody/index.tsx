@@ -18,7 +18,11 @@ const PostCardBody: FC<PostCardBodyProps> = (props) => {
       rel={re.test(href) ? 'noopener noreferrer' : undefined}
     >
       <p className="text-2xl font-semibold text-gray-900">{title}</p>
-      <p className="mt-3 text-base text-gray-500">{description}</p>
+      {description !== '' ? (
+        <p className="mt-3 text-base text-gray-500">{description}</p>
+      ) : (
+        <></>
+      )}
     </Link>
   )
 }
