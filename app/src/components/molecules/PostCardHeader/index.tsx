@@ -21,6 +21,7 @@ const PostCardHeader: FC<PostCardHeaderProps> = (props) => {
         <Image
           src={postedSite.icon}
           alt={postedSite.name}
+          placeholder="blur"
           className="inline h-auto w-5"
         />
         <span className="text-base text-gray-500">{postedSite.name}</span>

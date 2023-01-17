@@ -1,7 +1,7 @@
 import axios from 'axios'
 import qiitaIcon from 'public/qiita.png'
-import zennIcon from 'public/zenn.ico'
-import hatenaIcon from 'public/hatena.ico'
+import zennIcon from 'public/zenn.png'
+import hatenaIcon from 'public/hatena.png'
 import { PostType } from '@/types'
 import { load as cheerioLoad } from 'cheerio'
 
