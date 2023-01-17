@@ -28,8 +28,9 @@ const Header: FC<HeaderProps> = (props) => {
                 <div className="flex items-center">
                   <Link href={'/'}>
                     <Image
-                      className="block h-10 w-auto"
+                      className="block h-10 w-auto rounded-full"
                       src={icon}
+                      placeholder="blur"
                       alt="Your Company"
                     />
                   </Link>

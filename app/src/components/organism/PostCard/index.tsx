@@ -29,7 +29,7 @@ const PostCard: FC<PostCardProps> = (props) => {
   return (
     <div
       key={title}
-      className="flex flex-1 flex-col justify-between overflow-hidden rounded-lg bg-white p-6 shadow-lg hover:bg-slate-50"
+      className="flex flex-1 flex-col justify-between overflow-hidden rounded-lg bg-white p-6 shadow-lg hover:bg-slate-100"
     >
       <div className="mt-1">
         <PostCardHeader
@@ -38,10 +38,10 @@ const PostCard: FC<PostCardProps> = (props) => {
           datetime={datetime}
         />
       </div>
-      <div className="mt-7">
+      <div className="mt-4">
         <PostCardBody href={href} description={description} title={title} />
       </div>
-      <div className="mt-7">
+      <div className="mt-4">
         <PostFooter tags={tags} />
       </div>
     </div>
