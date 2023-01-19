@@ -31,10 +31,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className="inset-0 flex justify-center sm:px-[5rem]">
       <div className="flex w-full max-w-7xl lg:px-8">
-        <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20">
+        <div className="w-full bg-white ring-1 ring-zinc-100">
           <Header tabs={tabs} />
           <Component {...pageProps} />
-          <div className="w-full border-t border-gray-200" />
           <Footer tabs={tabs} />
         </div>
       </div>

@@ -7,9 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier src/**/*.{ts,tsx} --write"
+    "format": "prettier src/**/*.{ts,tsx} --write",
+    "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.4",
     "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.13",
     "@next/font": "13.1.2",
@@ -20,6 +22,7 @@
     "cheerio": "^1.0.0-rc.12",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.2",
+    "graphql": "^16.6.0",
     "next": "13.1.2",
     "react": "18.2.0",
     "react-content-loader": "^6.2.0",
@@ -29,6 +32,8 @@
     "typescript": "4.9.4"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.16.4",
+    "@graphql-codegen/client-preset": "1.2.6",
     "@tailwindcss/forms": "^0.5.3",
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "autoprefixer": "^10.4.13",
@@ -36,6 +41,7 @@
     "postcss": "^8.4.21",
     "prettier": "^2.8.2",
     "prettier-plugin-tailwindcss": "^0.2.1",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.2.4",
+    "@graphql-codegen/introspection": "2.2.3"
   }
 }

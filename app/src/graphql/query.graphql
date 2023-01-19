@@ -1,0 +1,16 @@
+query BlogPosts($limit: Int, $page: Int) {
+  blogPostCollection(limit: $limit, skip: $page) {
+    items {
+      title
+      slug
+      description
+      publishDate
+      tagCollection {
+        items {
+          name
+          slug
+        }
+      }
+    }
+  }
+}
