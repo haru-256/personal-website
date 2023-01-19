@@ -52,7 +52,7 @@ const Footer: FC<FooterPros> = (props) => {
   const { tabs } = props
   return (
     <footer className="bg-white">
-      <div className="mx-auto max-w-7xl overflow-hidden py-20 px-6 sm:py-24 lg:px-8">
+      <div className="mx-auto max-w-7xl overflow-hidden py-10 px-6 sm:py-16 lg:px-8">
         <nav
           className="max-sm: -mb-6 grid-cols-2 max-sm:grid max-sm:place-items-center max-sm:justify-center sm:flex sm:justify-center sm:space-x-12"
           aria-label="Footer"

@@ -5,6 +5,7 @@ import { PostCardListProps } from '@/components/organism/PostCardList'
 
 const Posts: FC<PostCardListProps> = (props) => {
   const { posts } = props
+
   return (
     <div className="bg-white px-6 pt-16 pb-20 lg:px-8 lg:pt-24 lg:pb-28">
       <div className="relative mx-auto max-w-lg divide-y-2 divide-gray-200 lg:max-w-5xl">

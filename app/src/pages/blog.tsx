@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Posts from '@/components/templates/Posts'
 import { NextPage } from 'next'
 import { PostCardListProps } from '@/components/organism/PostCardList'
 import { GetStaticProps } from 'next'
@@ -7,8 +6,11 @@ import {
   fetchPostsFromHatena,
   fetchPostsFromQiita,
   fetchPostsFromZenn,
+  fetchPostsFromContentful,
 } from '@/libs/getAllPosts'
 import { getEnvVariable } from '@/utils'
+import initApolloClient from '@/graphql/apollo-client'
+import Posts from '@/components/templates/Posts'
 
 const Blog: NextPage<PostCardListProps> = (props) => {
   const { posts } = props
@@ -33,8 +35,13 @@ export const getStaticProps: GetStaticProps<PostCardListProps> = async () => {
   const zennPosts = await fetchPostsFromZenn()
   // get hatena Posts
   const hatenaPosts = await fetchPostsFromHatena()
+  // get haru256 Posts
+  const haru256Posts = await fetchPostsFromContentful(initApolloClient())
   // join haru256 posts, qiita posts and zenn posts
-  let posts = qiitaPosts.concat(zennPosts).concat(hatenaPosts)
+  let posts = haru256Posts
+    .concat(zennPosts)
+    .concat(qiitaPosts)
+    .concat(hatenaPosts)
   posts = posts
     .sort(
       (a, b) => new Date(a.datetime).getTime() - new Date(b.datetime).getTime()

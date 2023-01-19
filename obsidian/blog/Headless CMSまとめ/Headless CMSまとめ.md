@@ -91,5 +91,8 @@ https://www.sanity.io/pricing
 
 ### 機能
 
+### note
+	- GraphQLはあるが、自分で組み立てたContent Modelのフィールドは基本nullableになっている。Content Modelの方でRequiredにしたフィールドもnullableであり、使いにくい。
+
 
 
