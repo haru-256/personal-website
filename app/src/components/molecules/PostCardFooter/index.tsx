@@ -5,10 +5,10 @@ export type PostFooterProps = {
   tags: Array<TagProps>
 }
 
-const Tags: FC<PostFooterProps> = (props) => {
+const PostFooter: FC<PostFooterProps> = (props) => {
   const { tags } = props
   return (
-    <div className="flex flex-wrap gap-1">
+    <div className="flex flex-wrap gap-1 text-sm">
       {tags.map((tag) => (
         <Tag key={tag.name} {...tag} />
       ))}
@@ -16,4 +16,4 @@ const Tags: FC<PostFooterProps> = (props) => {
   )
 }
 
-export default Tags
+export default PostFooter

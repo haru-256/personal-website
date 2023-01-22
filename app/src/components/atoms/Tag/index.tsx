@@ -11,7 +11,7 @@ const Tag: FC<TagProps> = (props) => {
   return (
     <div
       key={name}
-      className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700"
+      className="rounded-full bg-indigo-50 px-3 py-1 font-medium text-indigo-700"
     >
       <Link href={href} className="hover:underline">
         {`#${name}`}

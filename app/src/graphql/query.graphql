@@ -1,14 +1,39 @@
-query BlogPosts($limit: Int, $page: Int) {
+query BlogPostIDs($limit: Int, $page: Int) {
   blogPostCollection(limit: $limit, skip: $page) {
-    items {
-      title
+    blogs: items {
       slug
-      description
+    }
+  }
+}
+
+query BlogPostCards($slugs: [String!]!) {
+  blogPostCollection(where: { slug_in: $slugs }) {
+    blogs: items {
+      slug
+      title
       publishDate
+      description
       tagCollection {
-        items {
-          name
+        tags: items {
           slug
+          name
+        }
+      }
+    }
+  }
+}
+
+query BlogPost($slug: String!) {
+  blogPostCollection(where: { slug: $slug }) {
+    blogs: items {
+      title
+      publishDate
+      description
+      body
+      tagCollection {
+        tags: items {
+          slug
+          name
         }
       }
     }

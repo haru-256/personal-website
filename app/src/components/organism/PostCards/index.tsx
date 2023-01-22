@@ -34,8 +34,8 @@ const PostCardList: FC<PostCardListProps> = (props) => {
   const currentPage = getPage(router, pages)
 
   return (
-    <div className="flex flex-col gap-[4rem]">
-      <div className="mx-10 mt-6 grid gap-5 pt-10 lg:grid-cols-2 lg:gap-x-6 lg:gap-y-12">
+    <div className="flex flex-col gap-y-[2.5rem] sm:gap-y-[4rem]">
+      <div className="mx-10 grid gap-5 lg:grid-cols-2 lg:gap-x-6 lg:gap-y-12">
         {posts
           .slice((currentPage - 1) * pageSize, currentPage * pageSize)
           .map((post) => (
