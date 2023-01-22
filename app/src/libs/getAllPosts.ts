@@ -1,77 +1,21 @@
 import axios from 'axios'
-import haru256Icon from 'public/icon.png'
 import qiitaIcon from 'public/qiita.png'
 import zennIcon from 'public/zenn.png'
 import hatenaIcon from 'public/hatena.png'
-import { PostType } from '@/types'
+import { BlogPostCard } from '@/types'
 import { load as cheerioLoad } from 'cheerio'
-import { ApolloClient, NormalizedCacheObject } from '@apollo/client'
-import { BlogPostsDocument } from '@/graphql/generated/graphql'
 
-type ContentfulBlogTag = {
-  name: string
-  slug: string
-  description: string
-  icon?: object
-}
-
-type ContentfulBlogPost = {
-  title: string
-  slug: string
-  description: string
-  publishDate: string
-  tagCollection: {
-    items: ContentfulBlogTag[]
-  }
-}
-export async function fetchPostsFromContentful(
-  apolloClient: ApolloClient<NormalizedCacheObject>
-): Promise<PostType[]> {
-  const { data, error } = await apolloClient.query({
-    query: BlogPostsDocument,
-    variables: { limit: 20, page: 0 },
-  })
-  if (error) {
-    throw error
-  }
-
-  if (data.blogPostCollection) {
-    const posts = data.blogPostCollection.items.filter(
-      (post): post is ContentfulBlogPost => post !== undefined
-    )
-    const haru256Posts: PostType[] = posts.map((post) => {
-      const { title, slug, description, publishDate, tagCollection } = post
-      return {
-        postedSite: {
-          name: 'haru256.dev',
-          icon: haru256Icon,
-        },
-        title,
-        href: `/blog/${slug}`,
-        description: description,
-        date: new Date(publishDate).toLocaleDateString(),
-        datetime: publishDate,
-        tags: tagCollection.items.map((tag) => ({
-          name: tag.name,
-          href: `/blog/tag/${slug}`,
-        })),
-      }
-    })
-    return haru256Posts
-  } else {
-    return []
-  }
-}
-
-type QiitaPosts = {
+type QiitaBlogPostCard = {
   title: string
   created_at: string
   url: string
   tags: [{ name: string }]
-}[]
+}
 
-export async function fetchPostsFromQiita(token: string): Promise<PostType[]> {
-  const { data } = await axios.get<QiitaPosts>(
+export async function fetchBlogPostCardsFromQiita(
+  token: string
+): Promise<BlogPostCard[]> {
+  const { data } = await axios.get<QiitaBlogPostCard[]>(
     'https://qiita.com/api/v2/authenticated_user/items',
     {
       headers: {
@@ -79,8 +23,8 @@ export async function fetchPostsFromQiita(token: string): Promise<PostType[]> {
       },
     }
   )
-  const qiitaPosts: PostType[] = data.map((qiitaPost) => {
-    const { title, url, created_at, tags } = qiitaPost
+  const qiitaBlogPostCards: BlogPostCard[] = data.map((qiitaBlogPostCard) => {
+    const { title, url, created_at, tags } = qiitaBlogPostCard
     return {
       postedSite: {
         name: 'qiita',
@@ -94,10 +38,10 @@ export async function fetchPostsFromQiita(token: string): Promise<PostType[]> {
       tags: tags.map((tag) => ({ name: tag.name, href: '' })),
     }
   })
-  return qiitaPosts
+  return qiitaBlogPostCards
 }
 
-type zennPosts = {
+type zennBlogPostCard = {
   articles: {
     path: string
     title: string
@@ -106,17 +50,17 @@ type zennPosts = {
   }[]
 }
 
-export async function fetchPostsFromZenn(): Promise<PostType[]> {
-  const { data } = await axios.get<zennPosts>(
+export async function fetchBlogPostCardsFromZenn(): Promise<BlogPostCard[]> {
+  const { data } = await axios.get<zennBlogPostCard>(
     'https://zenn.dev/api/articles?username=haru256'
   )
   const { articles } = data
 
-  const zennPosts: PostType[] = await Promise.all(
+  const zennBlogPostCards: BlogPostCard[] = await Promise.all(
     articles.map(async (article) => {
       const { path, title, published_at } = article
       const url = `https://zenn.dev${path}`
-      const tags = await parseZennPost(url)
+      const tags = await parseZennBlogPostCard(url)
       return {
         postedSite: {
           name: 'zenn.dev',
@@ -131,10 +75,10 @@ export async function fetchPostsFromZenn(): Promise<PostType[]> {
       }
     })
   )
-  return zennPosts
+  return zennBlogPostCards
 }
 
-async function parseZennPost(url: string) {
+async function parseZennBlogPostCard(url: string) {
   const { data } = await axios.get(url)
   const $ = cheerioLoad(data)
   const re = new RegExp('^View_topicName__.+$')
@@ -147,13 +91,14 @@ async function parseZennPost(url: string) {
   return tags
 }
 
-export async function fetchPostsFromHatena(): Promise<PostType[]> {
+export async function fetchBlogPostCardsFromHatena(): Promise<BlogPostCard[]> {
   const monotaroURLs = [
     'https://tech-blog.monotaro.com/entry/2022/06/30/090000',
   ]
-  const hatenaPosts: PostType[] = await Promise.all(
+  const hatenaBlogPostCards: BlogPostCard[] = await Promise.all(
     monotaroURLs.map(async (url) => {
-      const { title, date, datetime, tags } = await parseMonotaroHatenaPost(url)
+      const { title, date, datetime, tags } =
+        await parseMonotaroHatenaBlogPostCard(url)
       return {
         postedSite: {
           name: 'hatena.blog.com',
@@ -168,10 +113,10 @@ export async function fetchPostsFromHatena(): Promise<PostType[]> {
       }
     })
   )
-  return hatenaPosts
+  return hatenaBlogPostCards
 }
 
-async function parseMonotaroHatenaPost(url: string) {
+async function parseMonotaroHatenaBlogPostCard(url: string) {
   const { data } = await axios.get(url)
   const $ = cheerioLoad(data)
   // get title

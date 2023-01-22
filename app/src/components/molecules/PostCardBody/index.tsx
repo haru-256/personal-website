@@ -9,7 +9,7 @@ type PostCardBodyProps = {
 
 const PostCardBody: FC<PostCardBodyProps> = (props) => {
   const { href, title, description } = props
-  const re = /^https:\/\//
+  const re = /^http(s)*:\/\//
   return (
     <Link
       href={href}
