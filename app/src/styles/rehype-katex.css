@@ -1,4 +1,4 @@
 /* NOTE: for responsive */
 div.math.math-display {
-  overflow-x: scroll;
+  overflow-x: auto;
 }
