@@ -27,7 +27,6 @@ type PostProps = {
 }
 
 const components = {
-  // img: MdxImage,
   a: MdxLink,
   Image: MdxImage,
 }
