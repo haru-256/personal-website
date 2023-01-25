@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
 import '@/styles/rehype-pretty-code.css'
 import '@/styles/rehype-katex.css'
+import '@/styles/rehype-toc.css'
 import type { AppProps } from 'next/app'
 import Header from '@/components/organism/Header'
 import Footer from '@/components/organism/Footer'

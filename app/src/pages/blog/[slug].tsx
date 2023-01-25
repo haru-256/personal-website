@@ -21,6 +21,9 @@ import { MDXRemote } from 'next-mdx-remote'
 import PostHeader from '@/components/molecules/PostHeader'
 import MdxImage from '@/components/atoms/MdxImage'
 import MdxLink from '@/components/atoms/MdxLink'
+import TableOfContents from '@/components/organism/TableOfContents'
+import { useRouter } from 'next/router'
+import { renderToString } from 'react-dom/server'
 
 type PostProps = {
   post: BlogPost
@@ -34,6 +37,9 @@ const components = {
 const Post: NextPage<PostProps> = (props) => {
   const { post } = props
   const headTitle = `${post.title} - haru256.dev`
+  const router = useRouter()
+  const { slug } = router.query
+  const mdxRemote = <MDXRemote {...post.body} components={components} />
 
   return (
     <>
@@ -51,10 +57,18 @@ const Post: NextPage<PostProps> = (props) => {
               tags={post.tags}
             />
           </div>
-          <div className="mt-10">
-            <article className="prose prose-lg prose-indigo mx-auto text-zinc-900 prose-code:before:content-none prose-code:after:whitespace-pre prose-code:after:content-none prose-pre:mt-[-0.15em] prose-pre:rounded-tl-none md:prose-pre:mt-[-0.15em]">
-              <MDXRemote {...post.body} components={components} />
-            </article>
+          <div className="mx-auto mt-7 flex flex-col gap-7">
+            <div className="mx-auto">
+              <TableOfContents
+                htmlSource={renderToString(mdxRemote)}
+                path={`/blog/${slug}`}
+              />
+            </div>
+            <div className="mx-auto">
+              <article className="prose prose-lg prose-indigo text-zinc-900 prose-code:before:content-none prose-code:after:whitespace-pre prose-code:after:content-none prose-pre:mt-[-0.15em] prose-pre:rounded-tl-none md:prose-pre:mt-[-0.15em]">
+                {mdxRemote}
+              </article>
+            </div>
           </div>
         </div>
       </div>
@@ -95,7 +109,7 @@ export const getStaticProps: GetStaticProps<PostProps, PostParams> = async (
         [rehypePrettyCode, options],
         rehypeKatex,
         rehypeSlug,
-        // [rehypeToc, { customizeTOC, customizeTOCItem }],
+        // rehypeToc,
       ],
     },
   })
