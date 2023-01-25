@@ -57,7 +57,7 @@ const Post: NextPage<PostProps> = (props) => {
               tags={post.tags}
             />
           </div>
-          <div className="mx-auto mt-10 flex flex-col">
+          <div className="mx-auto mt-7 flex flex-col gap-7">
             <div className="mx-auto">
               <TableOfContents
                 htmlSource={renderToString(mdxRemote)}

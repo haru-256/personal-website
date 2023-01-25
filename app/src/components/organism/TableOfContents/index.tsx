@@ -13,7 +13,7 @@ const TableOfContents: FC<TableOfContentsProps> = (props) => {
   const h2Nodes = root.querySelectorAll('h2')
 
   return (
-    <nav className="m-5 flex flex-col gap-3 rounded-lg p-3" aria-label="toc">
+    <nav className="flex flex-col gap-3 rounded-lg p-3" aria-label="toc">
       <div className="text-base font-bold text-gray-600">TABLE OF CONTENTS</div>
       <ul className="list-disc">
         {h2Nodes.map((h2Node) => (
