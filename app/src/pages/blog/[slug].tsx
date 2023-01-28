@@ -47,8 +47,8 @@ const Post: NextPage<PostProps> = (props) => {
         <title>{headTitle}</title>
         <meta key="description" name="description" content={post.description} />
       </Head>
-      <div className="relative overflow-hidden bg-white py-16">
-        <div className="relative  px-6 lg:px-8">
+      <div className="bg-white py-16">
+        <div className=" px-6 lg:px-8">
           <div className="mx-auto max-w-prose text-lg">
             <PostHeader
               title={post.title}
@@ -57,18 +57,14 @@ const Post: NextPage<PostProps> = (props) => {
               tags={post.tags}
             />
           </div>
-          <div className="mx-auto mt-7 flex flex-col gap-7">
-            <div className="mx-auto">
-              <TableOfContents
-                htmlSource={renderToString(mdxRemote)}
-                path={`/blog/${slug}`}
-              />
-            </div>
-            <div className="mx-auto">
-              <article className="prose prose-lg prose-indigo text-zinc-900 prose-code:before:content-none prose-code:after:whitespace-pre prose-code:after:content-none prose-pre:mt-[-0.15em] prose-pre:rounded-tl-none md:prose-pre:mt-[-0.15em]">
-                {mdxRemote}
-              </article>
-            </div>
+          <div className="mx-auto mt-7 flex flex-col content-center items-center gap-7">
+            <TableOfContents
+              htmlSource={renderToString(mdxRemote)}
+              path={`/blog/${slug}`}
+            />
+            <article className="prose prose-lg prose-indigo w-5/6 text-zinc-900 prose-a:break-words prose-code:before:content-none prose-code:after:whitespace-pre prose-code:after:content-none prose-pre:mt-[-0.15em] prose-pre:rounded-tl-none prose-img:m-0 md:prose-pre:mt-[-0.15em]">
+              {mdxRemote}
+            </article>
           </div>
         </div>
       </div>

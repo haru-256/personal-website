@@ -4,14 +4,12 @@ import { FC } from 'react'
 type MdxImageProps = {
   src: string
   alt: string
-  height: number | undefined
-  width: number | undefined
 }
 
-const MdxImage: FC<MdxImageProps> = ({ src, alt, height, width }) => {
+const MdxImage: FC<MdxImageProps> = ({ src, alt }) => {
   return (
-    <div className="flex justify-center">
-      <Image src={src} alt={alt} height={height} width={width} />
+    <div className="relative flex h-[300px] w-full justify-center md:h-[400px] lg:h-[500px]">
+      <Image src={src} alt={alt} fill={true} className="object-contain" />
     </div>
   )
 }

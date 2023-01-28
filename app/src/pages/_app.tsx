@@ -36,15 +36,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <WrapBalancerProvider>
-        <div className="inset-0 flex justify-center sm:px-[5rem]">
-          <div className="flex w-full max-w-7xl lg:px-8">
-            <div className="w-full bg-white ring-1 ring-zinc-100">
-              <Header tabs={tabs} />
-              <Component {...pageProps} />
-              <Footer tabs={tabs} />
-            </div>
-          </div>
-        </div>
+        <Header tabs={tabs} />
+        <Component {...pageProps} />
+        <Footer tabs={tabs} />
       </WrapBalancerProvider>
       <Analytics />
     </>
