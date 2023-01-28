@@ -22,16 +22,16 @@ export default function App({ Component, pageProps }: AppProps) {
       href: '/blog',
       isHighlight: router.pathname === '/blog',
     },
-    {
-      name: 'Project',
-      href: '/project',
-      isHighlight: router.pathname === '/project',
-    },
-    {
-      name: 'About',
-      href: '/about',
-      isHighlight: router.pathname === '/about',
-    },
+    // {
+    //   name: 'Project',
+    //   href: '/project',
+    //   isHighlight: router.pathname === '/project',
+    // },
+    // {
+    //   name: 'About',
+    //   href: '/about',
+    //   isHighlight: router.pathname === '/about',
+    // },
   ]
   return (
     <>
