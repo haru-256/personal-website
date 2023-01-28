@@ -9,6 +9,7 @@ const HomeHeader: FC<Record<string, never>> = () => {
     <div className="bg-white">
       <div className="mx-auto max-w-7xl py-16 px-6 sm:py-24 lg:px-8">
         <div className="text-center">
+          <h2 className="text-lg font-semibold text-indigo-600">Home</h2>
           <h1 className="mt-1 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
             haru256.dev
           </h1>
