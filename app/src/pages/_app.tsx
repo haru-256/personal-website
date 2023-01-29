@@ -8,6 +8,15 @@ import Footer from '@/components/organism/Footer'
 import { useRouter } from 'next/router'
 import { Analytics } from '@vercel/analytics/react'
 import { Provider as WrapBalancerProvider } from 'react-wrap-balancer'
+import React from 'react'
+
+type Tab = {
+  name: string
+  href: string
+  isCurrentTab: boolean
+}
+
+export const TabsContext = React.createContext<Tab[]>([])
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -15,12 +24,12 @@ export default function App({ Component, pageProps }: AppProps) {
     {
       name: 'Home',
       href: '/',
-      isHighlight: router.pathname === '/',
+      isCurrentTab: router.pathname === '/',
     },
     {
       name: 'Blog',
       href: '/blog',
-      isHighlight: router.pathname === '/blog',
+      isCurrentTab: router.pathname === '/blog',
     },
     // {
     //   name: 'Project',
@@ -35,11 +44,13 @@ export default function App({ Component, pageProps }: AppProps) {
   ]
   return (
     <>
-      <WrapBalancerProvider>
-        <Header tabs={tabs} />
-        <Component {...pageProps} />
-        <Footer tabs={tabs} />
-      </WrapBalancerProvider>
+      <TabsContext.Provider value={tabs}>
+        <WrapBalancerProvider>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </WrapBalancerProvider>
+      </TabsContext.Provider>
       <Analytics />
     </>
   )
