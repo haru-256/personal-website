@@ -4,19 +4,11 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import Link from 'next/link'
 import icon from 'public/icon.png'
+import { TabsContext } from '@/pages/_app'
+import { useContext } from 'react'
 
-type Tab = {
-  name: string
-  href: string
-  isHighlight: boolean
-}
-
-type HeaderProps = {
-  tabs: Array<Tab>
-}
-
-const Header: FC<HeaderProps> = (props) => {
-  const { tabs } = props
+const Header: FC<Record<string, never>> = () => {
+  const tabs = useContext(TabsContext)
   return (
     <Disclosure as="nav" className="bg-white">
       {({ open }) => (
@@ -44,7 +36,7 @@ const Header: FC<HeaderProps> = (props) => {
                         key={tab.name}
                         href={tab.href}
                         className={`inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium ${
-                          tab.isHighlight
+                          tab.isCurrentTab
                             ? 'border-indigo-500 text-gray-900'
                             : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-indigo-500'
                         }`}
@@ -78,7 +70,7 @@ const Header: FC<HeaderProps> = (props) => {
                     as="a"
                     href={tab.href}
                     className={`block border-l-4 py-2 pl-3 pr-4 text-base font-medium ${
-                      tab.isHighlight
+                      tab.isCurrentTab
                         ? 'border-indigo-400 bg-indigo-50 text-indigo-700'
                         : 'border-transparent text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700'
                     }`}
