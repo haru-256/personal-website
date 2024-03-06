@@ -2,7 +2,7 @@ code {
   counter-reset: line;
 }
 
-code > .line::before {
+code > [data-line]::before {
   counter-increment: line;
   content: counter(line);
 
@@ -14,15 +14,15 @@ code > .line::before {
   color: gray;
 }
 
-code[data-line-numbers-max-digits='2'] > .line::before {
+code[data-line-numbers-max-digits='2'] > [data-line]::before {
   width: 2rem;
 }
 
-code[data-line-numbers-max-digits='3'] > .line::before {
+code[data-line-numbers-max-digits='3'] > [data-line]::before {
   width: 3rem;
 }
 
-div[data-rehype-pretty-code-title] {
+figcaption[data-rehype-pretty-code-title] {
   display: inline-block;
   border-top-left-radius: 0.375rem;
   border-top-right-radius: 0.375rem;
