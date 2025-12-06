@@ -29,8 +29,8 @@ export default [
   ...ts.configs.recommended,
   nextPlugin.configs["core-web-vitals"],
   {
+    files: ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
     rules: {
-      "prefer-const": "error",
       "@typescript-eslint/no-unused-vars": "error",
       "@typescript-eslint/no-explicit-any": "error",
       "@typescript-eslint/no-require-imports": "off",
