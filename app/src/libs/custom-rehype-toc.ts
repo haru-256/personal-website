@@ -7,9 +7,7 @@ export function customizeTOC(toc: HtmlElementNode): Node | boolean | undefined {
 }
 
 export function customizeTOCItem(
-  tocItem: ListItemNode,
-  heading: HtmlElementNode
+  tocItem: ListItemNode
 ): Node | boolean | undefined {
-  heading
   return tocItem
 }
