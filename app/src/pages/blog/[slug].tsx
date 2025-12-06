@@ -100,15 +100,9 @@ export const getStaticProps: GetStaticProps<PostProps, PostParams> = async (
   const blogPost = await fetchBlogPost(client, slug)
   const body = await serialize(blogPost.body, {
     mdxOptions: {
-      // @ts-expect-error 既知のバグ。以下で報告されている
-      // https://github.com/orgs/rehypejs/discussions/63#discussioncomment-7643855
       remarkPlugins: [remarkGfm, remarkMath, remarkEmoji],
       rehypePlugins: [
-        // @ts-expect-error 既知のバグ。以下で報告されている
-        // https://github.com/orgs/rehypejs/discussions/63#discussioncomment-7643855
         [rehypePrettyCode, options],
-        // @ts-expect-error 既知のバグ。以下で報告されている
-        // https://github.com/orgs/rehypejs/discussions/63#discussioncomment-7643855
         rehypeKatex,
         rehypeSlug,
         // rehypeToc,

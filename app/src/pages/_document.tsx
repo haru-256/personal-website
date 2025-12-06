@@ -10,7 +10,7 @@ export default function Document() {
           href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
         />
       </Head>
-      <body className="flex h-full flex-col bg-zinc-50 ">
+      <body className="flex h-full flex-col bg-zinc-50">
         <Main />
         <NextScript />
       </body>
