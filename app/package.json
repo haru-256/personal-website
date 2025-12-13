@@ -22,7 +22,7 @@
     "clsx": "^2.1.1",
     "graphql": "^16.12.0",
     "katex": "^0.16.25",
-    "next": "16.0.10",
+    "next": "^16.0.10",
     "next-mdx-remote": "^5.0.0",
     "node-html-parser": "^6.1.13",
     "prismjs": "^1.30.0",
