@@ -11,7 +11,7 @@ import {
   BlogPostCardsDocument,
   BlogPostDocument,
 } from './generated/graphql'
-import { BlogPostCard, BlogPost, RawBlogPost } from '@/types'
+import { BlogPostCard, RawBlogPost } from '@/types'
 
 const limit = 100
 
