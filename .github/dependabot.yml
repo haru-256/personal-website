@@ -1,7 +1,29 @@
 version: 2
 updates:
-  # npm
+  # npm (minor & patch grouped)
   - package-ecosystem: "npm"
     directory: "app/"
     schedule:
       interval: "monthly"
+    groups:
+      minor-patch-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
+
+  # npm (major only, separate PRs)
+  - package-ecosystem: "npm"
+    directory: "app/"
+    schedule:
+      interval: "monthly"
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-minor"
+          - "version-update:semver-patch"
