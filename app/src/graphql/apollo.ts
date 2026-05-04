@@ -11,7 +11,7 @@ import {
   BlogPostCardsDocument,
   BlogPostDocument,
 } from './generated/graphql'
-import { BlogPostCard, BlogPost } from '@/types'
+import { BlogPostCard, BlogPost, RawBlogPost } from '@/types'
 
 const limit = 100
 
@@ -144,7 +144,7 @@ type BlogPostGraphQL = {
 export async function fetchBlogPost(
   client: ApolloClient<NormalizedCacheObject>,
   slug: string
-): Promise<BlogPost> {
+): Promise<RawBlogPost> {
   const { data, error } = await client.query({
     query: BlogPostDocument,
     variables: { slug },
