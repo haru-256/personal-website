@@ -1,4 +1,5 @@
 import { StaticImageData } from 'next/image'
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 export type BlogPostCard = {
   postedSite: {
@@ -26,3 +27,5 @@ export type BlogPost = {
     name: string
   }[]
 }
+
+export type RawBlogPost = Omit<BlogPost, 'body'> & { body: string }
