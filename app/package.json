@@ -24,7 +24,7 @@
     "katex": "^0.16.25",
     "next": "^16.0.10",
     "next-mdx-remote": "^6.0.0",
-    "node-html-parser": "^6.1.13",
+    "node-html-parser": "^7.1.0",
     "prismjs": "^1.30.0",
     "react": "^19.2.1",
     "react-content-loader": "^6.2.1",
