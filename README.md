@@ -11,7 +11,9 @@
 ├── app/                  # Next.js アプリケーション本体
 │   ├── src/              # ソースコード (コンポーネント、ロジック等)
 │   ├── public/           # 静的アセット
-│   ├── package.json      # 依存関係定義
+│   ├── package.json      # 依存関係定義（pnpm）
+│   ├── pnpm-lock.yaml    # pnpm lockfile
+│   ├── mise.toml         # Node.js / pnpm バージョン
 │   ├── next.config.js    # Next.js 設定
 │   ├── tailwind.config.js # Tailwind CSS 設定
 │   └── ...
@@ -74,23 +76,22 @@ src/
 
 ### 前提条件
 
-- Node.js 18以上
-- npm または pnpm
+- [mise](https://mise.jdx.dev/)（Node.js / pnpm のバージョン管理）
+- Node.js / pnpm のバージョンは [`app/mise.toml`](app/mise.toml) で固定（Node.js 24.11.1、pnpm 10.34.5）
+
+Next.js 16 の実行には Node.js 20.9.0 以上が必要です。
 
 ### インストール
 
 ```bash
 cd app
-npm install
-# または
+mise install
 pnpm install
 ```
 
 ### 開発環境の起動
 
 ```bash
-npm run dev
-# または
 pnpm dev
 ```
 
@@ -99,27 +100,27 @@ pnpm dev
 ### ビルド
 
 ```bash
-npm run build
-npm start
+pnpm build
+pnpm start
 ```
 
 ## 主要なスクリプト
 
 | コマンド | 説明 | 実行内容 |
 | --- | --- | --- |
-| `dev` | 開発サーバー起動 | `next dev` |
-| `build` | 本番ビルド | `next build` |
-| `start` | ビルド済みアプリ起動 | `next start` |
-| `lint` | コード検査 | `eslint .` |
-| `format` | コード整形 | `prettier ...` |
-| `codegen` | GraphQL型生成 | `graphql-codegen` |
+| `pnpm dev` | 開発サーバー起動 | `next dev` |
+| `pnpm build` | 本番ビルド | `next build` |
+| `pnpm start` | ビルド済みアプリ起動 | `next start` |
+| `pnpm lint` | コード検査 | `eslint .` |
+| `pnpm format` | コード整形 | `prettier ...` |
+| `pnpm codegen` | GraphQL型生成 | `graphql-codegen` |
 
 ## GraphQL 型の自動生成
 
 GraphQL スキーマから TypeScript 型を自動生成します。コマンドを実行すると `src/graphql/generated/` ディレクトリに型定義ファイルが生成されます。
 
 ```bash
-npm run codegen
+pnpm codegen
 ```
 
 ## 主要な機能
