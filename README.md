@@ -16,7 +16,7 @@
 │   ├── mise.toml         # ローカルの Node.js / pnpm バージョン
 │   ├── vercel.json       # Vercel でも同じ pnpm を使うための install 設定
 │   ├── next.config.js    # Next.js 設定
-│   ├── tailwind.config.js # Tailwind CSS 設定
+│   ├── postcss.config.js # PostCSS / Tailwind CSS v4 設定
 │   └── ...
 ├── .github/              # GitHub 関連の設定
 └── README.md             # プロジェクトドキュメント (このファイル)
@@ -31,7 +31,7 @@
 - **TypeScript**: 型安全性による堅牢なコードベースと開発効率の向上。
 
 ### Styling & UI
-- **Tailwind CSS**: ユーティリティファーストなスタイリングで、迅速かつ一貫性のあるデザインを実現。
+- **Tailwind CSS v4**: ユーティリティファーストなスタイリングで、迅速かつ一貫性のあるデザインを実現。
 - **Headless UI**: アクセシビリティに配慮した、スタイルに依存しないUIコンポーネント。
 - **React Wrap Balancer**: タイトルや見出しの改行位置を自動調整し、視覚的な美しさを向上。
 
