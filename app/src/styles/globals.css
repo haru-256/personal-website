@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
-/* Migrated from theme.extend.typography in tailwind.config.js */
 @utility prose {
   --tw-prose-body: #333;
 

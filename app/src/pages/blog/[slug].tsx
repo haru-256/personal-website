@@ -13,9 +13,6 @@ import rehypeKatex from 'rehype-katex'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkEmoji from 'remark-emoji'
-// TODO: table of content をカスタムする
-// import rehypeToc from '@jsdevtools/rehype-toc'
-// import { customizeTOC, customizeTOCItem } from '@/libs/custom-rehype-toc'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import PostHeader from '@/components/molecules/PostHeader'
@@ -101,12 +98,7 @@ export const getStaticProps: GetStaticProps<PostProps, PostParams> = async (
   const body = await serialize(blogPost.body, {
     mdxOptions: {
       remarkPlugins: [remarkGfm, remarkMath, remarkEmoji],
-      rehypePlugins: [
-        [rehypePrettyCode, options],
-        rehypeKatex,
-        rehypeSlug,
-        // rehypeToc,
-      ],
+      rehypePlugins: [[rehypePrettyCode, options], rehypeKatex, rehypeSlug],
     },
   })
 
