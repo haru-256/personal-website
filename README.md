@@ -14,6 +14,7 @@
 │   ├── package.json      # 依存関係定義（pnpm）
 │   ├── pnpm-lock.yaml    # pnpm lockfile
 │   ├── mise.toml         # Node.js / pnpm バージョン
+│   ├── vercel.json       # Vercel で pnpm 10 を使うための install 設定
 │   ├── next.config.js    # Next.js 設定
 │   ├── tailwind.config.js # Tailwind CSS 設定
 │   └── ...
