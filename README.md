@@ -13,7 +13,8 @@
 │   ├── public/           # 静的アセット
 │   ├── package.json      # 依存関係定義（pnpm）
 │   ├── pnpm-lock.yaml    # pnpm lockfile
-│   ├── mise.toml         # Node.js / pnpm バージョン
+│   ├── mise.toml         # ローカルの Node.js / pnpm バージョン
+│   ├── vercel.json       # Vercel でも同じ pnpm を使うための install 設定
 │   ├── next.config.js    # Next.js 設定
 │   ├── tailwind.config.js # Tailwind CSS 設定
 │   └── ...
@@ -78,6 +79,7 @@ src/
 
 - [mise](https://mise.jdx.dev/)（Node.js / pnpm のバージョン管理）
 - Node.js / pnpm のバージョンは [`app/mise.toml`](app/mise.toml) で固定（Node.js 24.11.1、pnpm 10.34.5）
+- Vercel でも同じ pnpm を使うため、[`app/vercel.json`](app/vercel.json) で Corepack 経由の pnpm 10.34.5 を指定
 
 Next.js 16 の実行には Node.js 20.9.0 以上が必要です。
 
