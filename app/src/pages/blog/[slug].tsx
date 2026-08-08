@@ -48,7 +48,7 @@ const Post: NextPage<PostProps> = (props) => {
         <meta key="description" name="description" content={post.description} />
       </Head>
       <div className="bg-white py-16">
-        <div className=" px-6 lg:px-8">
+        <div className="px-6 lg:px-8">
           <div className="mx-auto max-w-prose text-lg">
             <PostHeader
               title={post.title}
@@ -62,7 +62,7 @@ const Post: NextPage<PostProps> = (props) => {
               htmlSource={renderToString(mdxRemote)}
               path={`/blog/${slug}`}
             />
-            <article className="prose prose-lg prose-indigo w-5/6 text-zinc-900 prose-a:wrap-break-word prose-code:before:content-none prose-code:after:whitespace-pre prose-code:after:content-none prose-pre:mt-[-0.15em] prose-pre:rounded-tl-none prose-img:m-0 md:prose-pre:mt-[-0.15em]">
+            <article className="prose prose-lg w-5/6 text-zinc-900 prose-indigo prose-a:wrap-break-word prose-code:before:content-none prose-code:after:whitespace-pre prose-code:after:content-none prose-pre:mt-[-0.15em] prose-pre:rounded-tl-none md:prose-pre:mt-[-0.15em] prose-img:m-0">
               {mdxRemote}
             </article>
           </div>

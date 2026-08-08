@@ -22,7 +22,7 @@ const Custom404: FC<Record<string, never>> = () => {
             <div className="mt-10 flex justify-center justify-items-center space-x-3 sm:border-l sm:border-transparent sm:pl-6">
               <Link
                 href="/"
-                className="items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-xs hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-xs hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden"
               >
                 Go back home
               </Link>
