@@ -13,3 +13,7 @@ pnpm dev
 ```
 
 ブラウザで [http://localhost:3000](http://localhost:3000) を開いてください。
+
+## `vercel.json` について
+
+Vercel 上でもローカルと同じ pnpm（`10.34.5`）を使うための設定です。経緯と、将来削除してよいかの判断基準はルート README の「なぜ `vercel.json` で pnpm を固定しているか」を参照してください。
