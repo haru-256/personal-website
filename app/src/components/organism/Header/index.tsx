@@ -62,7 +62,7 @@ const Header: FC<Record<string, never>> = () => {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 pt-2 pb-3">
+            <div className="space-y-1 pb-3 pt-2">
               {tabs.map((tab) => {
                 return (
                   <Disclosure.Button

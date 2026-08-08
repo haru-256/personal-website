@@ -48,7 +48,7 @@ const Post: NextPage<PostProps> = (props) => {
         <meta key="description" name="description" content={post.description} />
       </Head>
       <div className="bg-white py-16">
-        <div className=" px-6 lg:px-8">
+        <div className="px-6 lg:px-8">
           <div className="mx-auto max-w-prose text-lg">
             <PostHeader
               title={post.title}

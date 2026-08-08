@@ -121,8 +121,9 @@ pnpm start
 | `pnpm dev` | 開発サーバー起動 | `next dev` |
 | `pnpm build` | 本番ビルド | `next build` |
 | `pnpm start` | ビルド済みアプリ起動 | `next start` |
-| `pnpm lint` | コード検査 | `eslint .` |
-| `pnpm format` | コード整形 | `prettier ...` |
+| `pnpm lint` | コード検査 | `oxlint .` |
+| `pnpm format` | コード整形 | `oxfmt` |
+| `pnpm format:check` | フォーマット確認 | `oxfmt --check` |
 | `pnpm codegen` | GraphQL型生成 | `graphql-codegen` |
 
 ## GraphQL 型の自動生成
