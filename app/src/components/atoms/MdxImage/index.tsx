@@ -34,7 +34,7 @@ const MdxImage: FC<MdxImageProps> = ({ src, alt }) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+            <div className="fixed inset-0 bg-gray-500/75 transition-opacity" />
           </Transition.Child>
 
           <div className="fixed inset-0 z-10 overflow-auto">
@@ -52,7 +52,7 @@ const MdxImage: FC<MdxImageProps> = ({ src, alt }) => {
                   <div className="mb-2 flex justify-end justify-self-end pr-4">
                     <button
                       type="button"
-                      className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       onClick={() => setOpen(false)}
                     >
                       <span className="sr-only">Close</span>

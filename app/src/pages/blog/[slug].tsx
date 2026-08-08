@@ -62,7 +62,7 @@ const Post: NextPage<PostProps> = (props) => {
               htmlSource={renderToString(mdxRemote)}
               path={`/blog/${slug}`}
             />
-            <article className="prose prose-lg prose-indigo w-5/6 text-zinc-900 prose-a:break-words prose-code:before:content-none prose-code:after:whitespace-pre prose-code:after:content-none prose-pre:mt-[-0.15em] prose-pre:rounded-tl-none prose-img:m-0 md:prose-pre:mt-[-0.15em]">
+            <article className="prose prose-lg prose-indigo w-5/6 text-zinc-900 prose-a:wrap-break-word prose-code:before:content-none prose-code:after:whitespace-pre prose-code:after:content-none prose-pre:mt-[-0.15em] prose-pre:rounded-tl-none prose-img:m-0 md:prose-pre:mt-[-0.15em]">
               {mdxRemote}
             </article>
           </div>
