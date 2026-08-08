@@ -10,5 +10,9 @@
   "sortTailwindcss": {
     "stylesheet": "./src/styles/globals.css"
   },
-  "ignorePatterns": ["src/graphql/generated/**", ".next/**"]
+  "ignorePatterns": [
+    "src/graphql/generated/**",
+    ".next/**",
+    "graphql.schema.json"
+  ]
 }
