@@ -126,6 +126,13 @@ pnpm start
 | `pnpm format:check` | フォーマット確認 | `oxfmt --check` |
 | `pnpm codegen` | GraphQL型生成 | `graphql-codegen` |
 
+## CI
+
+GitHub Actions（[`.github/workflows/ci.yml`](.github/workflows/ci.yml)）で、`main` への push と pull request に対して次を実行します。
+
+- `pnpm lint`（oxlint）
+- `pnpm format:check`（oxfmt）
+
 ## GraphQL 型の自動生成
 
 GraphQL スキーマから TypeScript 型を自動生成します。コマンドを実行すると `src/graphql/generated/` ディレクトリに型定義ファイルが生成されます。
