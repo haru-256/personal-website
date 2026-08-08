@@ -74,12 +74,5 @@
     "sass": "^1.102.0",
     "tailwindcss": "^3.4.18",
     "typescript-eslint": "^8.59.2"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "sharp",
-      "unrs-resolver"
-    ]
   }
 }
