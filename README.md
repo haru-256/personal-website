@@ -79,9 +79,17 @@ src/
 
 - [mise](https://mise.jdx.dev/)（Node.js / pnpm のバージョン管理）
 - Node.js / pnpm のバージョンは [`app/mise.toml`](app/mise.toml) で固定（Node.js 24.11.1、pnpm 10.34.5）
-- Vercel でも同じ pnpm を使うため、[`app/vercel.json`](app/vercel.json) で Corepack 経由の pnpm 10.34.5 を指定
+- Vercel でも同じ pnpm を使うため、[`app/vercel.json`](app/vercel.json) で Corepack 経由の pnpm 10.34.5 を指定（理由は後述）
 
 Next.js 16 の実行には Node.js 20.9.0 以上が必要です。
+
+### なぜ `vercel.json` で pnpm を固定しているか
+
+ローカルでは `mise.toml` と `package.json` の `packageManager` フィールド（`pnpm@10.34.5`）でバージョンを揃えています。
+
+一方 Vercel は、プロジェクトの作成日などをもとに pnpm のメジャーバージョンを決めることがあり、**`packageManager` を読んでも古いプロジェクトでは pnpm 9 のままになる**場合があります（このリポジトリでもその挙動でした）。ローカル（pnpm 10）とデプロイ（pnpm 9）がずれると、lockfile や install スクリプトの挙動差の原因になるため、[`app/vercel.json`](app/vercel.json) の `installCommand` で Corepack 経由の pnpm 10.34.5 を明示しています。
+
+将来 Vercel が `packageManager` を見て自動で同じバージョンを使うようになれば、この `installCommand` は不要になる可能性があります。そのときはビルドログで実際に使われた pnpm バージョンを確認したうえで、削除を検討してください。
 
 ### インストール
 
