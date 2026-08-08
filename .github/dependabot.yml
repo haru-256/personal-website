@@ -1,6 +1,7 @@
 version: 2
 updates:
-  # npm (minor & patch grouped)
+  # npm/pnpm lockfile-based updates (minor & patch grouped)
+  # GitHub Dependabot uses package-ecosystem "npm" for pnpm-lock.yaml as well.
   - package-ecosystem: "npm"
     directory: "app/"
     schedule:
@@ -17,7 +18,7 @@ updates:
         update-types:
           - "version-update:semver-major"
 
-  # npm (major only, separate PRs)
+  # npm/pnpm lockfile-based updates (major only, separate PRs)
   - package-ecosystem: "npm"
     directory: "app/"
     schedule:
