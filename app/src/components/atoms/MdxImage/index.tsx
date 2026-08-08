@@ -52,7 +52,7 @@ const MdxImage: FC<MdxImageProps> = ({ src, alt }) => {
                   <div className="mb-2 flex justify-end justify-self-end pr-4">
                     <button
                       type="button"
-                      className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden"
                       onClick={() => setOpen(false)}
                     >
                       <span className="sr-only">Close</span>

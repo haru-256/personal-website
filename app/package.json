@@ -7,8 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
-    "format": "prettier src/**/*.{ts,tsx} --write",
+    "lint": "oxlint .",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
     "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
@@ -50,27 +51,19 @@
     "unified": "^11.0.5"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.6",
-    "@eslint/js": "^9.39.1",
     "@graphql-codegen/cli": "5.0.7",
     "@graphql-codegen/client-preset": "6.0.0",
     "@graphql-codegen/introspection": "5.0.0",
-    "@next/eslint-plugin-next": "^16.1.1",
     "@tailwindcss/postcss": "^4.3.3",
     "@tailwindcss/typography": "^0.5.19",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@types/unist": "^3.0.3",
-    "@typescript-eslint/eslint-plugin": "^8.59.2",
-    "eslint": "^9.39.1",
-    "eslint-config-next": "^16.0.7",
-    "eslint-config-prettier": "^9.1.2",
-    "globals": "^16.5.0",
+    "oxfmt": "^0.62.0",
+    "oxlint": "^1.77.0",
+    "oxlint-tailwindcss": "^1.7.1",
     "postcss": "^8.5.6",
-    "prettier": "^3.7.4",
-    "prettier-plugin-tailwindcss": "^0.8.1",
-    "tailwindcss": "^4.3.3",
-    "typescript-eslint": "^8.59.2"
+    "tailwindcss": "^4.3.3"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
