@@ -14,7 +14,7 @@ const TableOfContentHeading: FC<TableOfContentHeadingProps> = (props) => {
   const headingID = headingNode.id
 
   return (
-    <li className="px-3 py-2 text-base font-medium text-gray-600  hover:font-bold hover:text-indigo-600">
+    <li className="px-3 py-2 text-base font-medium text-gray-600 hover:font-bold hover:text-indigo-600">
       <Link href={`${path}#${headingID}`}>{headingName}</Link>
     </li>
   )

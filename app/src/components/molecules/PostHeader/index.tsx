@@ -17,7 +17,7 @@ const PostHeader: FC<PostHeaderProps> = (props) => {
   return (
     <>
       <div className="text-right text-lg text-slate-500">{date}</div>
-      <h1 className="mt-5 text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">
+      <h1 className="mt-5 text-center text-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl">
         <Balancer>{title}</Balancer>
       </h1>
       <div className="mt-8 flex flex-wrap gap-1 text-base">

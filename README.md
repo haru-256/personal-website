@@ -16,7 +16,7 @@
 │   ├── mise.toml         # ローカルの Node.js / pnpm バージョン
 │   ├── vercel.json       # Vercel でも同じ pnpm を使うための install 設定
 │   ├── next.config.js    # Next.js 設定
-│   ├── tailwind.config.js # Tailwind CSS 設定
+│   ├── postcss.config.js # PostCSS / Tailwind CSS v4 設定
 │   └── ...
 ├── .github/              # GitHub 関連の設定
 └── README.md             # プロジェクトドキュメント (このファイル)
@@ -31,7 +31,7 @@
 - **TypeScript**: 型安全性による堅牢なコードベースと開発効率の向上。
 
 ### Styling & UI
-- **Tailwind CSS**: ユーティリティファーストなスタイリングで、迅速かつ一貫性のあるデザインを実現。
+- **Tailwind CSS v4**: ユーティリティファーストなスタイリングで、迅速かつ一貫性のあるデザインを実現。
 - **Headless UI**: アクセシビリティに配慮した、スタイルに依存しないUIコンポーネント。
 - **React Wrap Balancer**: タイトルや見出しの改行位置を自動調整し、視覚的な美しさを向上。
 
@@ -45,7 +45,7 @@
 
 ## こだわりポイント (Appeal)
 
-- **モダンな開発環境**: React 19, Next.js 16, ESLint 9 (Flat Config) など、常に最新の安定版技術を追従しています。
+- **モダンな開発環境**: React 19, Next.js 16, Oxlint / Oxfmt など、常に最新の安定版技術を追従しています。
 - **高度なコンテンツ表現**: 技術ブログとしての質を高めるため、MDXを活用したリッチなテキスト表現（数式、コードブロック、目次生成など）を自前で実装しています。
 - **パフォーマンスとDX**: 画像最適化や型安全なAPI連携により、ユーザー体験と開発者体験の両立を目指しています。
 
@@ -121,8 +121,9 @@ pnpm start
 | `pnpm dev` | 開発サーバー起動 | `next dev` |
 | `pnpm build` | 本番ビルド | `next build` |
 | `pnpm start` | ビルド済みアプリ起動 | `next start` |
-| `pnpm lint` | コード検査 | `eslint .` |
-| `pnpm format` | コード整形 | `prettier ...` |
+| `pnpm lint` | コード検査 | `oxlint .` |
+| `pnpm format` | コード整形 | `oxfmt` |
+| `pnpm format:check` | フォーマット確認 | `oxfmt --check` |
 | `pnpm codegen` | GraphQL型生成 | `graphql-codegen` |
 
 ## GraphQL 型の自動生成
